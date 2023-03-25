@@ -39,17 +39,17 @@ const Cart = () => {
         <div className='mt-20 mx-20'>
 
             {
-                productDatas.length ? <p className='hidden'>productDatas.length</p> : <p className='text-2xl font-bold font-Edu  text-center text-red-500'>Cart is empty!!
-                    <Link to='/' className='text-2xl font-bold font-Edu text-gray-500 '> Continue shopping click here</Link>
+                productDatas.length <= 0 && <p className='text-2xl font-bold font-Edu  text-center text-red-500'>Cart is empty!!
+                    <Link to='/' className='lg:text-2xl text-xl font-bold font-Edu text-gray-500 '> Continue shopping click here</Link>
 
                 </p>
             }
 
 
-            <div className='flex py-20'>
+            <div className='lg:flex py-20'>
                 <CartItem />
 
-                <div className='w-1/3 bg-[#fafafa] py-6 px-4'>
+                <div className='lg:w-1/3 w-full bg-[#fafafa] py-6 px-4'>
                     <div className='flex flex-col gap-6 border-b-[1px] border-b-gray-400 pb-6'>
                         <h2 className='text-2xl font-Edu font-medium'>Cart Totals</h2>
                         <p className='flex items-center gap-4'>

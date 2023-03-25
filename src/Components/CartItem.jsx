@@ -13,21 +13,21 @@ const CartItem = () => {
     return (
         <div className='w-2/3 pr-10'>
             <div className='w-full'>
-                <h2 className='text-2xl font-Edu font-semibold'>Shopping Cart</h2>
+                <h2 className='lg:text-2xl  font-Edu font-semibold'>Shopping Cart</h2>
             </div>
 
             <div>
                 {
                     productDatas.map(item =>
-                        <div key={item._id} className='flex items-center justify-between gap-6 mt-6'>
+                        <div key={item._id} className='lg:flex items-center justify-between gap-6 mt-6'>
 
                             <div className='flex items-center gap-2'>
-                                <MdOutlineClose onClick={() => dispatch(removeToCart(item._id)) & toast.info(`${item.title} is removed`)} className='text-xl text-gray-600 hover:text-red-500 cursor-pointer duration-300' />
-                                <img className='w-32 h-32 object-cover' src={item.image} alt="" />
+                                <MdOutlineClose className='text-xl' onClick={() => dispatch(removeToCart(item._id)) & toast.info(`${item.title} is removed`)} className='text-xl text-gray-600 hover:text-red-500 cursor-pointer duration-300' />
+                                <img className='w-32 h-32 object-cover mb-3 lg:mb-0' src={item.image} alt="" />
                             </div>
 
-                            <h1 className='text-xl font-medium font-Edu w-52'>{item.title}</h1>
-                            <h1 className='text-xl font-medium font-Edu w-10'>${item.price}</h1>
+                            <h1 className='text-xl font-medium font-Edu w-52 mb-3 lg:mb-0'>{item.title}</h1>
+                            <h1 className='text-xl font-medium font-Edu w-10 mb-3 lg:mb-0'>${item.price}</h1>
 
                             <div className='w-52 flex items-center justify-between text-gray-500 p-3 border gap-4'>
                                 <p className='text-sm  font-Edu'> Quantity</p>
@@ -52,7 +52,7 @@ const CartItem = () => {
                                 </div>
                             </div>
 
-                            <p className='text-xl font-Edu font-bold'>${item.quantity * item.price}</p>
+                            <p className='text-xl font-Edu font-bold mb-3 lg:mb-0'>${item.quantity * item.price}</p>
 
                         </div>
 
@@ -60,10 +60,10 @@ const CartItem = () => {
 
                     )}
 
-                <button onClick={()=>dispatch(resetItem()) & toast.error(`All cart is removed`)} className='bg-red-600 font-Edu font-medium px-4 py-2 rounded text-white mt-6 ml-6'>Remove all cart</button>
+                <button onClick={()=>dispatch(resetItem()) & toast.error(`All cart is removed`)} className='bg-red-600 font-Edu font-medium px-4 py-2 rounded text-white mt-6 lg:ml-6 w-40'>Remove all cart</button>
 
-              <div className='mt-6'>
-              <Link to='/' className='text-xl font-Edu font-semibold text-gray-600 '>
+              <div className='mt-6 w-48'>
+              <Link to='/' className='lg:text-xl font-Edu font-semibold text-gray-600 '>
                  Countine shopping!!
                 </Link>
               </div>
