@@ -8,8 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ProductsCard = ({ product }) => {
 
-    //2hor
-    //redux
+    // console.log(product)
+ 
+
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -64,7 +66,16 @@ const ProductsCard = ({ product }) => {
                 </div>
 
 
+
+                {/* <Pagination product={product}/> */}
+
+
+
             </div>
+
+
+
+           
 
             <ToastContainer
                 position="top-left"

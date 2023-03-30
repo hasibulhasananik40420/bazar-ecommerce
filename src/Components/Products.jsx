@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Pagination from './Pagination'
 import ProductsCard from './ProductsCard'
 
 const Products = ({ products }) => {
+
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postPerPage, setPostPerPage] = useState(4)
+
+
+    const lastPostIndex = currentPage * postPerPage
+    const firstPostIndex = lastPostIndex - postPerPage
+
+    const allProducts = products.slice(firstPostIndex, lastPostIndex)
+    const totalPost = products.length
+
+
+    // const pages = []
+
+    // for (let i = 1; i <= Math.ceil(totalPost / postPerPage); i++) {
+    //     pages.push(i)
+
+    // }
+
+
     // console.log(products)
     return (
         <div className='py-10 mt-8'>
@@ -14,9 +35,16 @@ const Products = ({ products }) => {
             {/* products card */}
             <div className='mx-20 grid lg:grid-cols-4 grid-cols-1  gap-10 mt-20'>
                 {
-                    products.map(product => <ProductsCard product={product} key={product._id} />)
+                    allProducts.map(product => <ProductsCard product={product} key={product._id}  />)
                 }
+
+
+
+
             </div>
+
+            <Pagination totalPost={totalPost} postPerPage={postPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+
 
         </div>
     )
